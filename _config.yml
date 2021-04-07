@@ -4,8 +4,8 @@
 
 # Site
 title: Craig Lin Blog
-subtitle: ''
-description: ''
+subtitle: 'This is subtitle'
+description: 'This is des'
 keywords:
 author: Craig Lin
 language: en
@@ -13,7 +13,7 @@ timezone: ''
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://example.com
+url: https://craiglin0322.github.io/
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
