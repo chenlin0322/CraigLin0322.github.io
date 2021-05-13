@@ -16,7 +16,8 @@ direction: ltr
 nav:
   home: /
   articles: /archives/
-  Categories: /tags
+  Categories: /categories
+  Tags: /tags
   projects: https://github.com/CraigLin0322
   about: /about/
 
