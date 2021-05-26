@@ -5,7 +5,6 @@ tags: 'UWP'
 categories: 'Windows Development'
 ---
 
-# Learning UWP: Introduction of UWP 
 
 A series of UWP essays I would like to bring into my blog, for introducing as well as learning about UWP, also this is my first time to use English to write the essay, so hopefully it can help me improve my English as well.   
 
