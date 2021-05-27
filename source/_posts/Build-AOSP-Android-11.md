@@ -1,8 +1,10 @@
 ---
 title: Build AOSP Android 11
 tags: AOSP
-categories: 'Android'
+categories: Android
+date: 2021-05-27 22:19:47
 ---
+
 
 Encapsulate about how to build your own Android 11 from AOSP on Ubuntu 18.04
 
@@ -90,7 +92,7 @@ For me, as I use **android-11.0.0_r36**, and my device is Pixel3, so here the dr
 
 #### Build
 
-When the work is done, firstly we extract the proprietary binaries which we had download.
+When the above work is done, firstly we extract the proprietary binaries.
 
 > Each set of binaries comes as a self-extracting script in a compressed archive. Uncompress each archive, run the included self-extracting script from the root of the source tree, then confirm you agree to the terms of the enclosed license agreement. The binaries and their matching makefiles are installed in the `vendor/` hierarchy of the source tree.
 
@@ -105,11 +107,35 @@ aosp_blueline-userdebug
 m
 ```
 
+If you encounter an issue like this:
+
+> FAILED: ninja: 'vendor/qcom/blueline/COPYRIGHT', needed by 'out/target/product/blueline/obj/NOTICE_FILES/src/system/app/QtiTelephonyService/QtiTelephonyService.apk.txt', missing and no known rule to make it
+
+you can just directly add the empty COPYRIGHT file on corresponding path, that works for me.
+
 ---
 
 #### Flash to device
 
+Build the `fastboot` and `adb` with:
 
+```shell
+make fastboot adb
+```
+
+**Unlocking the bootloader**, open the developer options and enable the `OEM unlocking` option, if it's gray out, connect to the internet so the device can check in at least once. If it remains disabled, your device might be SIM locked by your carrier and the bootloader can't be unlocked.
+
+> **If it still unchanged, the only reason is that you are a carrier version device which means that this device is force locked by carrier, you should consider another one.**
+
+Then execute next command:
+
+```shell
+adb reboot bootloader
+
+fastboot flashall -w
+```
+
+When flash work is done, now you have  own AOSP build on your device!
 
 
 
